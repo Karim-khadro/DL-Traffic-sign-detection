@@ -52,7 +52,8 @@ else:
         st.write("")
         st.write("Just a second")
 
-        className,label,im = predictImage(np.array(image),model,False,True,True)
+        className,label,im = predictImage(np.array(image),model,False,True)
+        im = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
         im = Image.fromarray(im)
         st.image(im, caption='Uploaded Image.')
 

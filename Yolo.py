@@ -70,7 +70,7 @@ def predictVideo(INPUT_FILE, model):
 	cv2.destroyAllWindows()
 	return Rclasses,Rlabels, 'video_result.mp4'
 
-def predictImage(INPUT_FILE, model=None, show=False, returnImg=False, pilImage =False):
+def predictImage(INPUT_FILE, model=None, show=False, returnImg=False):
     LABELS_FILE = 'kaggle_classes.csv'
     CONFIG_FILE = 'yolov4-obj.cfg'
     WEIGHTS_FILE = 'yolov4-4000.weights'
@@ -166,25 +166,25 @@ def predictImage(INPUT_FILE, model=None, show=False, returnImg=False, pilImage =
             if crop_img.size:
                 crop_img = cv2.cvtColor(crop_img, cv2.COLOR_BGR2RGB)
                 labelid = classification(crop_img, model).item()
+
                 Rclasses.append(LABELS[labelid][1])
                 Rlabels.append(labelid)
                 Rxmin.append(x)
                 Rymin.append(y)
                 Rhieght.append(h)
                 Rwiedht.append(w)
-                
-                cv2.rectangle(image, (x, y), (x + w, y + h), color, 5)
+
+                cv2.rectangle(image, (x, y), (x + w, y + h), color, 2)
                 text = "{}".format(LABELS[labelid][1])
-                cv2.putText(image, text, (x, y - 5),cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 5)
+
+                cv2.putText(image, text, (x-5, y - 5),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.7, color, 2)
 
     if show:
         im = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         image = Image.fromarray(im)
         image.show()
     if returnImg:
-        if pilImage:
-            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-            return Rclasses, Rlabels, image
         return Rclasses, Rlabels, image
     return Rclasses, Rlabels
 
