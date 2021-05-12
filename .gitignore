@@ -2,7 +2,8 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+yolov4-4000.weightss
+*.weightss
 # C extensions
 *.so
 
