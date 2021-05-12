@@ -1,0 +1,82 @@
+ClassId, ClassName
+0,Speed limit (20km/h)
+1,Speed limit (30km/h)
+2,Speed limit (50km/h)
+3,Speed limit (60km/h)
+4,Speed limit (70km/h)
+5,Speed limit (80km/h)
+6,End of speed limit (80km/h)
+7,Speed limit (100km/h)
+8,Speed limit (120km/h)
+9,No passing
+10,No passing vehicle over 3.5 tons
+11,Right-of-way at intersection
+12,Priority road
+13,Yield "Give priority"
+14,Stop
+15,No vehicles
+16,vehicle > 3.5 tons prohibited
+17,No entry
+18,General caution
+19,Dangerous curve left
+20,Dangerous curve right
+21,Double curve
+22,Bumpy road
+23,Slippery road
+24,Road narrows on the right
+25,Road work
+26,Traffic signals
+27,Pedestrians
+28,Children crossing
+29,Bicycles
+30,Beware of ice/snow
+31,Wild animals crossing
+32,End speed + passing limits
+33,Turn right ahead
+34,Turn left ahead
+35,Ahead only
+36,Go straight or right
+37,Go straight or left
+38,Keep right
+39,Keep left
+40,Roundabout mandatory
+41,End of no passing
+42,End no passing vehicle > 3.5 tons
+43,Bumpy road
+44,Double curve right then left
+45,End of priority road
+46,Level crossing with barriers ahead
+47,Road narrows on both sides
+48,Road narrows on left side
+49,Crossroads with priority to the right
+50,Give way to oncoming traffic
+51,No bicycles
+52,Maximum weight
+53,Maximum width 2.1 m
+54,Maximum height
+55,No left turn
+56,No right turn
+57,Bicycles and pedestrians only
+58,Proceed left only
+59,Bicycles only
+60,Road for bicycles and pedestrians only
+61,No parking or waiting
+62,No stopping
+63,No parking or waiting form 1 to 15 of the mounth
+64,No parking or waiting form 16 to end of the mounth
+65,Priority over oncoming vehicles
+66,Parking
+67,Handicapped parking
+68,Car only parking
+69,Truck only parking
+70,Bus only parking
+71,Sidewalk parking
+72,Residential area / living street
+73,End of residential area / living street
+74,One-way street
+75,No through road
+76,End of road work
+77,Bicycles crossing
+78,Parking announcement
+79,Road hump
+
