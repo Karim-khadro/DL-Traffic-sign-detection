@@ -24,7 +24,7 @@ def classification(image_array, m):
     std = torch.tensor(0.2976)
     image = Image.fromarray(image_array)
     device = "cuda:0"
-    transform = transforms.Compose([transforms.Resize((64, 64)),
+    transform = transforms.Compose([transforms.Resize((32, 32)),
                                     transforms.ToTensor(),
                                     transforms.Normalize(mean,std)])
     image = torch.unsqueeze(transform(image), 0)
@@ -75,6 +75,7 @@ def predictImage(INPUT_FILE, model=None, show=False, returnImg=False):
     CONFIG_FILE = 'yolov4-obj.cfg'
     WEIGHTS_FILE = 'yolov4-4000.weights'
     CONFIDENCE_THRESHOLD = 0.3
+    allstart = time.time()
     if model is None:
 	    model= getClassifer()
     # Return values
@@ -94,7 +95,6 @@ def predictImage(INPUT_FILE, model=None, show=False, returnImg=False):
         image = cv2.imread(INPUT_FILE)
     else:
         image = cv2.cvtColor(np.array(INPUT_FILE), cv2.COLOR_RGB2BGR)
-
     (H, W) = image.shape[:2]
 
     # determine only the *output* layer names that we need from YOLO
@@ -165,7 +165,13 @@ def predictImage(INPUT_FILE, model=None, show=False, returnImg=False):
             crop_img = image[y:y+h, x:x+w]
             if crop_img.size:
                 crop_img = cv2.cvtColor(crop_img, cv2.COLOR_BGR2RGB)
+
+                start = time.time()
                 labelid = classification(crop_img, model).item()
+                end = time.time()
+
+                print("[INFO] CLASSIFIER took {:.6f} seconds".format(end - start))
+                
 
                 Rclasses.append(LABELS[labelid][1])
                 Rlabels.append(labelid)
@@ -179,7 +185,9 @@ def predictImage(INPUT_FILE, model=None, show=False, returnImg=False):
 
                 cv2.putText(image, text, (x-5, y - 5),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.7, color, 2)
+    end = time.time()
 
+    print("[INFO] MODEL took {:.6f} seconds".format(end - start))
     if show:
         im = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         image = Image.fromarray(im)
