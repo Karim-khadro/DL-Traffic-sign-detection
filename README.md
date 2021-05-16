@@ -19,4 +19,8 @@ https://drive.google.com/file/d/1_UcHkZqF-y58NNyNlR7AnZAY6snKAutW/view?usp=shari
 
 3- put all files in the same directory
 
-4- use streamlit run web.py to run the web interface
+4- use 
+```bash
+streamlit run web.py
+``` 
+to run the web interface
