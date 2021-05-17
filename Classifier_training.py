@@ -1,23 +1,15 @@
 # In[1]:
 
 
-import numpy as np
+
 import torch, torchvision
 import torch.nn as nn
 import torch.nn.functional as F
-from torchvision import datasets
 import torchvision.transforms as transforms
-from torch.utils.data import Dataset, DataLoader
 import matplotlib.pyplot as plt 
-from PIL import Image
-from numpy import asarray
 import pandas as pd
 from torch.utils.tensorboard import SummaryWriter
 import os
-import math
-
-
-# In[2]:
 
 
 class RoadSignDataset(torch.utils.data.Dataset):
@@ -50,12 +42,9 @@ class RoadSignDataset(torch.utils.data.Dataset):
         return img,label
 
 
-# In[3]:
-
-
 headers = ["path", "class"]
-df = pd.read_csv("csv/test/Train.csv")
-df1 = pd.read_csv("csv/test/Test.csv")
+df = pd.read_csv("csv/Train.csv")
+df1 = pd.read_csv("csv/Test.csv")
 
 data = [df["path"],df["class"]]
 trainDf = pd.concat(data, axis=1, keys=headers)
@@ -74,7 +63,7 @@ t = transforms.Compose([transforms.Resize((64,64)), transforms.ToTensor()])
 mean_train = 0.0
 std_train = 0.0
 
-testset = RoadSignDataset('C:/Users/karim/Desktop/Train', trainDf,transform=t)  # test directory
+testset = RoadSignDataset('Train', trainDf,transform=t)  # test directory
 loader_test = torch.utils.data.DataLoader(testset, batch_size=len(trainDf["path"]), num_workers=0)#len(trainDf)
 data_test = next(iter(loader_test))
 mean_train = data_test[0].mean()
@@ -92,7 +81,7 @@ print(std_train)
 
 # Get mean & std of testing images
 t = transforms.Compose([transforms.Resize((64,64)), transforms.ToTensor() ])
-testset = RoadSignDataset('C:/Users/karim/Desktop', testDF,transform=t)  # test directory
+testset = RoadSignDataset('Test', testDF,transform=t)  # test directory
 loader_test = torch.utils.data.DataLoader(testset, batch_size=len(testDF), num_workers=0)#len(trainDf)
 data_test = next(iter(loader_test))
 
@@ -105,9 +94,6 @@ print(std_test)
 
 #tensor(0.3653)
 #tensor(0.2976)
-
-
-# In[11]:
 
 
 n_feature = 27
@@ -206,7 +192,7 @@ for i in range(num_epochs):
         accuracy += corr/len(trainloader)
         tmp_loss.append(loss.detach())
 
-        writer.add_scalar("Training loss", loss.item(), global_step=stepTrain) # TEST loss.item()
+        writer.add_scalar("Training loss", loss.item(), global_step=stepTrain)
         writer.add_scalar("Training accuracy", accuracy *100, global_step=stepTrain)
         stepTrain += 1
         
