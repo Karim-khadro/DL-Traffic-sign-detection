@@ -1,15 +1,15 @@
 # Traffic sign recognition
 This project uses deep learning to detect and recognize traffic signs in a road image.
 
-![Detection example](images/16600.png)
+![Detection example](images/16700.png)
 
 ## Introduction
 The classifer is trainded on 80 different classes.
 ![Classes example](images/calsses.png)
 
 Two technologies are used :
-* * YOLO "you only look once" to detect traffic signs.
-* * Convolutional neural network to classify traffic signs.
+* YOLO "you only look once" to detect traffic signs.
+* Convolutional neural network to classify traffic signs.
 
 ## Installation
 > The code is implemented in python3 using Pytorch and Opencv.
@@ -21,7 +21,7 @@ To run the web interface:
 ```bash
 pip install -r requirements.txt
 ``` 
-Or useto create a conda envirment
+Or create a conda envirment using
 ```bash
 conda env create -f environment.yml
 ``` 
@@ -34,3 +34,8 @@ conda env create -f environment.yml
 ```bash
 streamlit run web.py
 ``` 
+
+## Author
+
+* **Karim khadro**
+
