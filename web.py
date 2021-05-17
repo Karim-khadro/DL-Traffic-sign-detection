@@ -5,9 +5,8 @@ import tempfile
 import os
 import cv2
 import base64
-from Yolo import predictImage
-from Yolo import predictVideo
-from Yolo import getClassifer
+from Yolo_functions import predictImage,predictVideo,getClassifer
+
 
 def get_binary_file_downloader_html(bin_file, file_label='File'):
     with open(bin_file, 'rb') as f:
@@ -17,8 +16,6 @@ def get_binary_file_downloader_html(bin_file, file_label='File'):
     return href
 
 st.title("Traffic sign detection app")
-# vid = st.button("Video")
-# img = st.button("Image")
 model = getClassifer()
 genre = st.radio(
     "What's the data type ?",
