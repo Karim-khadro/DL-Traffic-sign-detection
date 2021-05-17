@@ -1,6 +1,6 @@
 # Traffic sign recognition
 This project uses deep learning to detect and recognize traffic signs in a road image.
-
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/karim-khadro/dl-traffic-sign-heroku/main/web.py)
 ![Detection example](images/16700.png)
 
 ## Introduction
