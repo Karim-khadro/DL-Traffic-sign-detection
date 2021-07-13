@@ -23,10 +23,6 @@ To run the web interface:
 ```bash
 pip install -r requirements.txt
 ``` 
-Or create a conda envirment using
-```bash
-conda env create -f environment.yml
-``` 
 
 2- download the Yolo weights from [Google drive](https://drive.google.com/file/d/1_UcHkZqF-y58NNyNlR7AnZAY6snKAutW/view?usp=sharing)
 
